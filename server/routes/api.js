@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+//var db = mongojs('mongodb://kalmuraee:H3sfSE5Cf2tp@ds149479.mlab.com:49479/taskdb', ['tasks']);
 
 // declare axios for making http requests
 const axios = require('axios');
 const API = 'https://jsonplaceholder.typicode.com';
 
-/* GET api listing. */
+// GET api listing.
 router.get('/', (req, res) => {
   res.send('api works');
 });
@@ -13,7 +14,8 @@ router.get('/', (req, res) => {
 // Get all posts
 router.get('/posts', (req, res) => {
   // Get posts from the mock api
-  // This should ideally be replaced with a service that connects to MongoDB
+
+  // Mongojs should be blow here
   axios.get(`${API}/posts`)
     .then(posts => {
       res.status(200).json(posts.data);
