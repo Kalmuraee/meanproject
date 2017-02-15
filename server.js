@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
-
+const router = express.Router();
 // Get our API routes
 const api = require('./server/routes/api');
 
@@ -21,8 +21,10 @@ app.use('/api', api);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
+
+
 
 /**
  * Get port from environment and store in Express.
@@ -35,6 +37,18 @@ app.set('port', port);
  */
 const server = http.createServer(app);
 
+
+router.get('/posts', (req, res) => {
+  // Get posts from the mock api
+  // This should ideally be replaced with a service that connects to MongoDB
+  axios.get(`${API}/posts`)
+    .then(posts => {
+      res.status(200).json(posts.data);
+    })
+    .catch(error => {
+      res.status(500).send(error)
+    });
+});
 /**
  * Listen on provided port, on all network interfaces.
  */
