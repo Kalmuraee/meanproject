@@ -1,0 +1,8 @@
+---
+applications:
+- name: meanproject
+  host: mean-${random-word}
+  memory: 1024M
+  buildpack : https://github.com/cloudfoundry/nodejs-buildpack.git
+  instances: 1  
+  disk_quota: 1G
