@@ -49,7 +49,5 @@ router.get('/posts', (req, res) => {
       res.status(500).send(error)
     });
 });
-/**
- * Listen on provided port, on all network interfaces.
- */
+
 server.listen(port, () => console.log(`API running on localhost:${port}`));
