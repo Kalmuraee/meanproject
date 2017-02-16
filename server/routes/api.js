@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-//const db = mongojs('mongodb://kalmuraee:H3sfSE5Cf2tp@ds149479.mlab.com:49479/taskdb', ['tasks']);
+//const db = mongojs('mongodb://kalmuraee:H3sfSE5Cf2tp@ds149479.mlab.com:49479/userslistdb', ['users']);
 
 // declare axios for making http requests
 const axios = require('axios');
